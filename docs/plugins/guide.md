@@ -109,8 +109,13 @@ module.exports = {
 
 **热重载**：Dev 环境下修改 `lib/` 任意 `.js/.json` 自动触发「卸载 → 重载」；后台修改配置同样热重载。
 
+## v2 能力(26.10.0+)
+
+26.10 起插件契约升级到 v2(完全向后兼容):manifest 新增 `deps` 版本约束与 `hooks` 生命周期钩子,`ctx` 新增 static / pages / cron / settings / logs / i18n / bus / model.namespace 等能力。详见[插件契约 v2](/plugins/v2);全能力示例见主仓库 `plugins/openvideo-plugin-demo` 1.1.0。
+
 ## 下一步
 
+- [插件契约 v2](/plugins/v2) — 26.10 新能力总览
 - [ctx API 参考](/plugins/ctx) — 完整 API
 - [服务层](/plugins/services) — 插件间协作
 - [数据模型](/plugins/model) — 持久化

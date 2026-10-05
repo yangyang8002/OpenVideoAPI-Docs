@@ -1,6 +1,6 @@
 # Quick Start
 
-<span class="badge">v26.8.14</span><span class="badge">Node ≥ 18</span><span class="badge">MIT</span>
+<span class="badge">v26.10.0</span><span class="badge">Node ≥ 18</span><span class="badge">MIT</span>
 
 OpenVideoAPI is a self-hosted, zero-build danmaku video player with a web admin panel: PoW firewall, multi-database, plugin system, i18n and themes.
 
@@ -17,7 +17,7 @@ npm install
 npm start
 ```
 
-The service listens on `http://localhost:1919` by default.
+The service listens on `http://localhost:1919` by default (override with the `PORT` env var).
 
 ## Option 2: Docker
 
@@ -50,19 +50,33 @@ http://localhost:1919/player/?url=VIDEO_URL
 
 ## Project Layout
 
+Since v26.10.0 the server is modular: `server.js` is a thin entry, and the logic lives in `src/` split into routes / services / middleware.
+
 ```
-server.js             main server (single file, no build)
-lib/                  core modules (store / cloud / plugin)
+server.js             thin entry (~70 lines: create app, listen, graceful shutdown)
+src/                  server source
+├── app.js            app factory (module assembly: define → mount)
+├── routes/           14 route modules (video / danmu / subtitle / admin ...)
+├── services/         12 service modules (db / backup / plugins / init ...)
+├── middleware/       middleware (security / rate limit / PoW / error handler ...)
+├── state.js          global state (S)
+├── config.js         config I/O (config.json, atomic writes)
+└── logger.js         logger
+lib/                  infrastructure (store / cloud / plugin / proxy)
 public/               frontend (admin.html, player.html, i18n.js)
-theme/                theme system
-plugins/              plugin directory
+theme/                theme system (player/ and admin/, 11 themes each)
+plugins/              plugin directory (includes the openvideo-plugin-demo sample)
 data/                 data (config.json, danmu.json, videos.json ...)
+tools/                helper scripts
 update.js             standalone updater
 update.xml            sha256 manifest
 ```
 
+See [Architecture](/en/guide/architecture) for the full module map and assembly order.
+
 ## Next Steps
 
+- [Architecture](/en/guide/architecture)
 - [Player](/en/guide/player)
 - [Admin Overview](/en/admin/overview)
 - [Plugin Development](/en/plugins/guide)

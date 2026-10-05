@@ -1,40 +1,40 @@
 <p align="center">
-  <img src="public/logo.svg" width="120" alt="ArtPlayer Web API Docs" />
+  <img src="public/logo.svg" width="120" alt="OpenVideoAPI Docs" />
 </p>
 
-# ArtPlayer Web API 文档
+# OpenVideoAPI Docs
 
-[ArtPlayer Web API](https://github.com/yangyang8002/OpenVideoAPI) 官方文档网站 —— 基于 [VitePress](https://vitepress.dev) 构建，支持中英双语。
+Official documentation site for [OpenVideoAPI](https://github.com/yangyang8002/OpenVideoAPI) — built with [VitePress](https://vitepress.dev), bilingual (zh/en).
 
 English | [中文](README.cn.md)
 
-- 在线文档：<https://doc.mbps.top/>
-- 主仓库：<https://github.com/yangyang8002/OpenVideoAPI>
+- Live docs: <https://doc.mbps.top/>
+- Main repo: <https://github.com/yangyang8002/OpenVideoAPI>
 
-## 本地开发
+## Local Development
 
 ```bash
 npm install
 npm run dev      # http://localhost:5173
-npm run build    # 构建到 docs/.vitepress/dist
-npm run preview  # 预览生产构建
+npm run build    # build to docs/.vitepress/dist
+npm run preview  # preview production build
 ```
 
-## 目录结构
+## Structure
 
 ```
 docs/
-├── index.md            # 首页（中文）
-├── guide/              # 指南：快速开始 / 播放器 / Docker / 更新 / FAQ
-├── admin/              # 管理后台：总览 / 控制台 / 插件 / 依赖 / 数据库 / 备份 / 安全 ...
-├── api/                # API 参考
-├── plugins/            # 插件系统：开发指南 / ctx API / Schema / 市场
-└── en/                 # English 版本
+├── index.md            # Home (Chinese)
+├── guide/              # Guide: quickstart / architecture / player / docker / update / faq
+├── admin/              # Admin: overview / console / plugins / deps / config / database / backup / security ...
+├── api/                # API reference
+├── plugins/            # Plugins: dev guide / v2 contract / ctx API / schema / marketplace
+└── en/                 # English version
 ```
 
-## 部署
+## Deploy
 
-推送 `main` 分支后，GitHub Actions 自动构建并部署到 GitHub Pages。
+Pushing to `main` triggers a GitHub Actions workflow that builds and deploys to GitHub Pages.
 
 ## License
 

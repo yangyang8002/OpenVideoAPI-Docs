@@ -37,7 +37,7 @@ features:
     details: Admin & player support Simplified Chinese, Traditional Chinese, Classical Chinese, English, Japanese, French
   - icon: 🎨
     title: Themes
-    details: Dual theme systems for player & admin, 10 palettes each, custom themes supported
+    details: Dual theme systems for player & admin, 11 palettes each, custom themes supported
   - icon: 📦
     title: Backup & Update
     details: Scheduled backups (local + FTP/SFTP/WebDAV/OpenList cloud), one-click update & dependency management

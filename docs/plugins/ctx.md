@@ -8,7 +8,7 @@
 | --- | --- |
 | `ctx.name` | 插件显示名 |
 | `ctx.config` | 当前插件配置（后台表单保存后热重载更新） |
-| `ctx.version` | 服务端版本号（如 `26.8.14`） |
+| `ctx.version` | 服务端版本号（如 `26.10.0`） |
 | `ctx.log(msg)` | 带插件名前缀的日志输出 |
 
 ## ctx.router（Express 路由）
@@ -73,7 +73,7 @@ ctx.on('my:event', (payload) => { ... });             // 自定义事件
 ctx.emit('my:event', { hello: 1 });                   // 同步广播
 ```
 
-卸载时自动清理该插件注册的全部监听；事件处理器异常被捕获并记录，不影响其他插件。
+卸载时自动清理该插件注册的全部监听；事件处理器异常被捕获并记录，不影响其他插件。v2 起 `ctx.on` 返回取消函数（`const off = ctx.on(...); off()`），且 `ctx.bus` 提供 `once` / `off` / `emitTo` / `events` 增强。
 
 ## ctx.provide / ctx.service（服务层）
 
@@ -102,3 +102,7 @@ await notes.list({ page: 1, limit: 20, search: 'key', searchKey: 'text' });
 ```js
 ctx.plugin(require('./sub-plugin'), { interval: 5 });
 ```
+
+## v2 新增能力（26.10.0+）
+
+在上述 v1 API 之外，v2 新增：`ctx.http.text/request`（超时可控的完整 HTTP 控制）、`ctx.static`（静态资源目录）、`ctx.pages.register`（自定义页面，可要求鉴权）、`ctx.cron.every/at`（自动清理的定时任务）、`ctx.settings`（插件私有持久化 kv）、`ctx.logs`（结构化日志）、`ctx.i18n`（词条注入与 `GET /api/plugins/i18n` 聚合）、`ctx.bus`（事件总线增强）、`ctx.model.namespace`（表名命名空间）。完整契约见 [插件契约 v2](/plugins/v2)。

@@ -37,7 +37,7 @@ features:
     details: 后台与播放器支持简体中文、繁體中文、文言、English、日本語、Français 六种语言
   - icon: 🎨
     title: 主题系统
-    details: 播放器 + 后台双主题，各 10 套配色，支持自定义主题
+    details: 播放器 + 后台双主题，各 11 套配色，支持自定义主题
   - icon: 📦
     title: 备份与更新
     details: 定时备份（本地 + FTP/SFTP/WebDAV/OpenList 云端），一键更新与依赖管理

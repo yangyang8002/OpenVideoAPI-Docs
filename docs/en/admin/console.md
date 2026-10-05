@@ -1,6 +1,6 @@
 # Console
 
-The Console tab (admin home) shows traffic & performance stats, auto-refreshing every 5 seconds.
+The Console tab (admin home) shows traffic & performance stats. Stat cards auto-refresh every 2 seconds; the request trend refreshes every 3 seconds.
 
 ## Stat Cards
 
@@ -23,8 +23,8 @@ The Console tab (admin home) shows traffic & performance stats, auto-refreshing 
 - Memory (RSS), heap, CPU (derived from successive samples)
 - Requests in the last minute (second-bucket accumulation)
 - Node.js version, PID, system / disk usage
-- Line chart: memory & CPU trend (10s sampling, ~20 minutes)
+- Line chart: memory & CPU trend (server-side 5s sampling, 240 samples ≈ 20 minutes)
 
 ## Request Trend
 
-Live request curve for the last 30 minutes (second precision), with total requests and uptime.
+Live request curve for the last 30 minutes (second precision, 3s refresh), with total requests and uptime.

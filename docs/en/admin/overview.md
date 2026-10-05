@@ -11,7 +11,7 @@ The admin panel lives at `/admin/` by default (configurable). Sidebar pages:
 | Subtitles | Add (URL / text / upload), localize, apply/unapply |
 | Plugins | Install (file / URL / npm), toggle, config forms, marketplace |
 | Dependencies | App version, per-dependency updates, plugin updates |
-| Server Config | PoW, rate limits, rendering, CDN, themes, account, admin path |
+| Server Config | Settings center: 9 domains (general / theme / danmaku / video / security / API / database / backup / plugins) with search, live validation and per-item reset |
 | Files | Browse server files, upload, zip/unzip, batch ops |
 | Logs | Last 500 requests (method / path / status / IP / ms) |
 | API Manager | Per-API enable/RPS/bandwidth, 1s-precision live stats |
@@ -26,4 +26,4 @@ Switch UI language (zh / zhHant / wyw / en / ja / fr) anytime; it applies immedi
 
 ## Themes
 
-Both player and admin themes (10 each) can be chosen in Server Config. The admin theme applies instantly.
+Both player and admin themes (11 each) can be chosen in Server Config. The admin theme applies instantly.

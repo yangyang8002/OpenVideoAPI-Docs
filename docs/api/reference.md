@@ -2,6 +2,12 @@
 
 所有接口返回 JSON，格式统一为 `{ code, msg, data }`。`code === 0` 表示成功。
 
+## 健康检查
+
+| 方法 | 路径 | 说明 |
+| --- | --- | --- |
+| GET | `/healthz` | 存活探测（无需认证）：`{ code: 0, msg: "ok", data: { uptimeSec, pid } }` |
+
 ## 公共接口（无需认证）
 
 | 方法 | 路径 | 说明 |
@@ -12,11 +18,21 @@
 | GET | `/api/danmu/v3/?id={vid}` | 获取弹幕（DPlayer 兼容数组格式） |
 | GET | `/api/danmu/v3/{vid}` | 同上（路径参数） |
 | POST | `/api/danmu/v3/` | 发送弹幕（v3） |
-| GET | `/api/video/resolve?v={vid}` | 通过视频码解析视频地址 |
+| GET | `/api/video/resolve?url=` | 由视频地址解析视频码（`{vid, source}`） |
 | POST | `/api/video/map` | 记录视频映射（`{vid, url}`） |
+| GET | `/api/video/resolve-link?url=` | OpenList 直链解析（云盘签名链接 → 二次直链） |
 | GET | `/api/subtitle/detect?url=` | 检测视频同目录字幕 |
 | GET | `/api/subtitle/by-id?id=` | 按 ID 加载字幕内容 |
+| POST | `/api/subtitle/external` | 校验外部字幕链接（`{url}`） |
+| GET | `/api/theme/{type}/list` | 主题列表（`type` = player / admin） |
+| GET | `/api/theme/{type}.css` | 主题样式表（`type` = player / admin，如 `/api/theme/bili.css`） |
+| GET | `/api/plugins/manifest?scope=` | 已启用插件的客户端注入清单 |
+| GET | `/api/plugins/client/{scope}/{pkg}/*` | 插件客户端静态脚本 |
+| GET | `/api/plugins/i18n?locale=&plugin=` | 插件多语言词条 |
+| GET | `/api/plugins/pages` | 插件注册的自定义页面路由 |
 | POST | `/api/pow/verify` | PoW 工作量证明校验 |
+
+各接口细节见 [视频 / 字幕 API](/api/video-subtitle) 与 [弹幕 API](/api/danmaku)。
 
 ## 管理接口（需要 Bearer Token）
 

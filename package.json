@@ -1,7 +1,7 @@
 {
-  "name": "artplayer-web-api-docs",
-  "version": "26.8.11",
-  "description": "ArtPlayer Web API 官方文档网站 (Official docs site, built with VitePress)",
+  "name": "openvideoapi-docs",
+  "version": "26.10.0",
+  "description": "OpenVideoAPI 官方文档网站 (Official docs site, built with VitePress)",
   "private": true,
   "type": "module",
   "scripts": {

@@ -28,6 +28,7 @@
 | POST | `/api/admin/subtitles/localize` | 字幕本地化 |
 | DELETE | `/api/admin/subtitles` | 删除字幕 |
 | POST | `/api/admin/subtitles/apply` / `unapply` | 应用 / 取消字幕 |
+| GET | `/api/admin/subtitles/video-counts` | 各视频已关联的字幕数量（视频列表徽标） |
 
 ## 系统与监控
 
@@ -35,7 +36,11 @@
 | --- | --- | --- |
 | GET | `/api/admin/dashboard` | 控制台统计（访问量 / 计数 / 性能 / 磁盘） |
 | GET | `/api/admin/logs?limit=` | 最近请求日志 |
-| GET | `/api/admin/config` / POST | 读取 / 保存服务器配置 |
+| GET/POST | `/api/admin/config` / POST | 读取 / 保存服务器配置（旧端点，继续可用） |
+| GET | `/api/admin/settings` | 设置中心：分域 schema、域名顺序与当前值 |
+| POST | `/api/admin/settings/validate` | 保存前校验（`{values}` → `{errors}`） |
+| POST | `/api/admin/settings/save` | 保存设置（键为全点路径如 `security.sessionMinutes`，未知键静默跳过；校验失败返回 `code: 2` 与错误表） |
+| POST | `/api/admin/restart` | 优雅重启（`{delay}` 毫秒，0 ~ 60000，默认 1500；先响应再执行） |
 | GET | `/api/admin/api/stats?span=` | API 统计（span 秒，30 ~ 7776000） |
 | POST | `/api/admin/api` | 保存 API 规则与保留天数 |
 
@@ -89,5 +94,7 @@
 | POST | `/api/admin/plugins/update` | 更新插件（按原来源） |
 | POST | `/api/admin/plugins/uninstall` | 卸载 |
 | GET | `/api/admin/plugins/market` | 官方插件市场 |
+| GET | `/api/admin/plugins/logs` | 插件环形日志（各插件 logger 输出） |
 | GET | `/api/admin/update/check` | 检查版本更新 |
+| POST | `/api/admin/update/config` | 更新/安装配置（npm 镜像源 + 插件市场源；市场源支持 `file://` 本地清单） |
 | POST | `/api/admin/update/run` | 执行更新（`{source, restart}`） |

@@ -8,7 +8,7 @@
 | --- | --- |
 | `ctx.name` | plugin display name |
 | `ctx.config` | current plugin config (updated on hot reload) |
-| `ctx.version` | server version (e.g. `26.8.14`) |
+| `ctx.version` | server version (e.g. `26.10.0`) |
 | `ctx.log(msg)` | log with plugin name prefix |
 
 ## ctx.router
@@ -86,7 +86,7 @@ ctx.on('my:event', (payload) => { ... });
 ctx.emit('my:event', { hello: 1 });
 ```
 
-All listeners registered by a plugin are cleaned up on unload.
+All listeners registered by a plugin are cleaned up on unload. Since v2, `ctx.on` returns a cancel function (`const off = ctx.on(...); off()`), and `ctx.bus` adds `once` / `off` / `emitTo` / `events`.
 
 ## ctx.provide / ctx.service (service layer)
 
@@ -106,3 +106,7 @@ Loads a nested plugin synchronously:
 ```js
 ctx.plugin(require('./sub-plugin'), { interval: 5 });
 ```
+
+## v2 Additions (26.10.0+)
+
+Beyond the v1 API above, v2 adds: `ctx.http.text/request` (full HTTP control with timeout), `ctx.static` (static asset dirs), `ctx.pages.register` (custom pages, auth optional), `ctx.cron.every/at` (self-cleaning timers), `ctx.settings` (plugin-private persistent kv), `ctx.logs` (structured logs), `ctx.i18n` (term injection, aggregated via `GET /api/plugins/i18n`), `ctx.bus` (event bus enhancements), and `ctx.model.namespace` (table namespaces). See [Plugin Contract v2](/en/plugins/v2) for the full contract.

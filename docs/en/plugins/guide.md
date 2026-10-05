@@ -84,8 +84,13 @@ module.exports = { name: 'hello', version: '1.0.0', apply(ctx, config) { ... } }
 
 In the Dev environment, editing any `.js/.json` under `lib/` triggers automatic reload.
 
+## v2 Capabilities (26.10.0+)
+
+Since 26.10 the plugin contract is at v2 (fully backward compatible): the manifest adds `deps` version constraints and `hooks` lifecycle hooks, and `ctx` gains static / pages / cron / settings / logs / i18n / bus / model.namespace. See [Plugin Contract v2](/en/plugins/v2); the main-repo `plugins/openvideo-plugin-demo` 1.1.0 demonstrates every capability.
+
 ## Next Steps
 
+- [Plugin Contract v2](/en/plugins/v2) — what's new in 26.10
 - [ctx API](/en/plugins/ctx)
 - [Services](/en/plugins/services)
 - [Data Model](/en/plugins/model)

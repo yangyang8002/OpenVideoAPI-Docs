@@ -13,7 +13,7 @@ export default defineConfig({
       lang: 'zh-CN',
       themeConfig: {
         logo: '/logo.svg',
-        siteTitle: 'ArtPlayer Web API',
+        siteTitle: 'OpenVideoAPI',
         search: { provider: 'local' },
         nav: [
           { text: '指南', link: '/guide/quickstart', activeMatch: '/guide/' },
@@ -28,6 +28,7 @@ export default defineConfig({
               text: '指南',
               items: [
                 { text: '快速开始', link: '/guide/quickstart' },
+                { text: '架构', link: '/guide/architecture' },
                 { text: '播放器使用', link: '/guide/player' },
                 { text: '插件开发环境', link: '/guide/dev' },
                 { text: 'Docker 部署', link: '/guide/docker' },
@@ -70,6 +71,7 @@ export default defineConfig({
               text: '插件系统',
               items: [
                 { text: '插件开发指南', link: '/plugins/guide' },
+                { text: '插件契约 v2', link: '/plugins/v2' },
                 { text: 'ctx API 参考', link: '/plugins/ctx' },
                 { text: '服务层', link: '/plugins/services' },
                 { text: '数据模型', link: '/plugins/model' },
@@ -83,7 +85,7 @@ export default defineConfig({
         docFooter: { prev: '上一页', next: '下一页' },
         outline: { label: '本页目录' },
         lastUpdated: { text: '最后更新' },
-        socialLinks: [{ icon: 'github', link: 'https://github.com/yangyang8002/Artplayer-Web-Api' }],
+        socialLinks: [{ icon: 'github', link: 'https://github.com/yangyang8002/OpenVideoAPI' }],
         footer: {
           message: 'MIT License · Made with ♥ by yangyang8002',
           copyright: 'Copyright © 2024-2026 yangyang8002'
@@ -95,7 +97,7 @@ export default defineConfig({
       lang: 'en-US',
       themeConfig: {
         logo: '/logo.svg',
-        siteTitle: 'ArtPlayer Web API',
+        siteTitle: 'OpenVideoAPI',
         search: { provider: 'local' },
         nav: [
           { text: 'Guide', link: '/en/guide/quickstart', activeMatch: '/en/guide/' },
@@ -110,6 +112,7 @@ export default defineConfig({
               text: 'Guide',
               items: [
                 { text: 'Quick Start', link: '/en/guide/quickstart' },
+                { text: 'Architecture', link: '/en/guide/architecture' },
                 { text: 'Player', link: '/en/guide/player' },
                 { text: 'Plugin Dev Env', link: '/en/guide/dev' },
                 { text: 'Docker', link: '/en/guide/docker' },
@@ -142,8 +145,8 @@ export default defineConfig({
               items: [
                 { text: 'Overview', link: '/en/api/reference' },
                 { text: 'Danmaku API', link: '/en/api/danmaku' },
-                { text: 'Admin API', link: '/en/api/admin' },
-                { text: 'Video / Subtitle API', link: '/en/api/video-subtitle' }
+                { text: 'Video / Subtitle API', link: '/en/api/video-subtitle' },
+                { text: 'Admin API', link: '/en/api/admin' }
               ]
             }
           ],
@@ -152,6 +155,7 @@ export default defineConfig({
               text: 'Plugins',
               items: [
                 { text: 'Plugin Guide', link: '/en/plugins/guide' },
+                { text: 'Plugin Contract v2', link: '/en/plugins/v2' },
                 { text: 'ctx API', link: '/en/plugins/ctx' },
                 { text: 'Services', link: '/en/plugins/services' },
                 { text: 'Data Model', link: '/en/plugins/model' },
@@ -165,7 +169,7 @@ export default defineConfig({
         docFooter: { prev: 'Previous', next: 'Next' },
         outline: { label: 'On this page' },
         lastUpdated: { text: 'Last updated' },
-        socialLinks: [{ icon: 'github', link: 'https://github.com/yangyang8002/Artplayer-Web-Api' }],
+        socialLinks: [{ icon: 'github', link: 'https://github.com/yangyang8002/OpenVideoAPI' }],
         footer: {
           message: 'MIT License · Made with ♥ by yangyang8002',
           copyright: 'Copyright © 2024-2026 yangyang8002'

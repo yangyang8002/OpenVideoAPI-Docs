@@ -5,7 +5,7 @@
 ```bash
 docker pull yangyang8002/open-video-api:latest
 docker run -d \
-  --name artplayer \
+  --name openvideoapi \
   -p 1919:1919 \
   -v /path/to/data:/app/data \
   --restart unless-stopped \
@@ -20,9 +20,9 @@ docker run -d \
 ```yaml
 version: "3"
 services:
-  artplayer:
+  openvideoapi:
     image: yangyang8002/open-video-api:latest
-    container_name: artplayer
+    container_name: openvideoapi
     ports:
       - "1919:1919"
     volumes:
@@ -35,8 +35,8 @@ services:
 | Tag | 说明 |
 | --- | --- |
 | `latest` | 最新版本 |
-| `26.8.14` | 指定版本（tag 与 npm 包版本一致） |
-| `26.8.x` | 大版本系列 |
+| `26.10.0` | 指定版本（tag 与 npm 包版本一致） |
+| `26.10.x` | 大版本系列 |
 
 > 国内加速镜像：`fast.fumor.top/yangyang8002/open-video-api`（快速通道）、`ghcr.nju.edu.cn/yangyang8002/open-video-api`（NJU 镜像）
 

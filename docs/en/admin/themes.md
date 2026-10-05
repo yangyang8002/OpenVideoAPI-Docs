@@ -4,11 +4,18 @@
 
 The player page theme is controlled by the server config `theme` (applied after saving) and can be overridden per-URL with `?theme=`.
 
-10 built-in themes: `bilibili` (deep blue & pink), `sakura` (cherry pink & white), `ocean` (deep sea blue), `sunset` (sunset orange), `forest` (forest green), `mono` (minimal black & white), `cyber` (neon cyberpunk), `shoujo` (shojo manga), `jrpg` (JRPG), `neon` (neon samurai).
+11 built-in themes: `bili` (Bilibili-style, default), `bilibili` (deep blue & pink), `sakura` (cherry pink & white), `ocean` (deep sea blue), `sunset` (sunset orange), `forest` (forest green), `mono` (minimal black & white), `cyber` (neon cyberpunk), `shoujo` (shojo manga), `jrpg` (JRPG), `neon` (neon samurai).
 
 ## Admin Themes
 
-The admin theme is controlled by the `adminTheme` config, applies **instantly** and is saved locally (localStorage). Also 10 built-in themes.
+The admin theme is controlled by the `adminTheme` config, applies **instantly** and is saved locally (localStorage). 11 built-in themes: `md3` (Material Design 3, default), `bilibili`, `cyber`, `forest`, `jrpg`, `mono`, `neon`, `ocean`, `sakura`, `shoujo`, `sunset`.
+
+Player and admin each have their own theme list (the two directories are independent; names need not match).
+
+## Theme Endpoints
+
+- `GET /api/theme/{type}/list`: theme list (`type` = `player` / `admin`)
+- `GET /api/theme/{type}.css`: stylesheet for the current theme (e.g. `/api/theme/bili.css`)
 
 ## Theme Structure
 
@@ -20,8 +27,10 @@ theme/
 ├── player.css           # player base styles (generated)
 ├── build.js             # build script (merges theme.json + style.css)
 ├── admin/<theme>/       # admin themes (theme.json variables + style.css component styles)
-└── player/<theme>/      # player themes (theme.json variables)
+└── player/<theme>/      # player themes (theme.json variables + style.css)
 ```
+
+Each theme directory consists of `theme.json` (CSS variables) and `style.css` (component styles).
 
 ## Custom Themes
 

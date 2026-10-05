@@ -19,7 +19,7 @@ npm run new hello      # ③ 生成插件骨架 plugins/openvideo-plugin-hello/
 OpenVideoAPI-Dev/
 ├── server/              # 服务端代码（setup 克隆，可随时 git pull）
 ├── plugins/             # ★ 你的插件都放这里（本地包，无需 npm 发布）
-│   ├── openvideo-plugin-demo/       # 完整示例
+│   ├── openvideo-plugin-demo/       # 完整示例（1.1.0，契约 v2 全演示）
 │   └── openvideo-plugin-hello/      # npm run new 生成
 ├── tools/
 │   ├── setup.js         # 初始化
@@ -31,7 +31,7 @@ OpenVideoAPI-Dev/
 
 ## 开发流程
 
-1. **新建插件**：`npm run new hello` → 生成包含后端 + 后台 tab + 播放器钩子的完整骨架
+1. **新建插件**：`npm run new hello` → 生成包含后端 + 生命周期钩子 + 后台 tab + 播放器钩子 + README 的完整骨架
 2. **启动**：`npm run dev`（默认端口 1920，与生产 1919 隔离；`node tools/dev.js 3000` 可改）
 3. **启用**：后台「插件管理」→ 插件列表 → 启用 `openvideo-plugin-hello`（新插件目录**自动发现**，无需手动安装）
 4. **开发**：修改 `plugins/<包>/lib/` 下任意 `.js/.json` → **自动热重载**（400ms 防抖，卸载→重载）
@@ -59,13 +59,16 @@ npm run new hello
 
 ```
 openvideo-plugin-hello/
-├── package.json                 # openvideoPlugin manifest（inject/schema/client）
+├── package.json                 # openvideoPlugin manifest（inject/schema/client + v2 可选 deps/hooks）
+├── README.md                    # 开发指引（契约入口 / demo 范例 / 热重载说明）
 └── lib/
-    ├── index.js                 # apply(ctx, config)：路由 / 动态表 / 事件 / 定时任务
+    ├── index.js                 # apply(ctx, config) + v2 生命周期钩子：路由 / 动态表 / 事件 / 定时任务
     └── client/
         ├── admin/panel.js       # OpenVideoAdmin.registerTab 后台 tab
         └── player/hook.js       # OpenVideoPlayer.onReady 播放器钩子
 ```
+
+插件契约（v1 + v2）的完整说明见主仓库 [OpenVideoAPI](https://github.com/yangyang8002/OpenVideoAPI) 根目录 `PLUGIN-CONTRACT.md`，v2 能力速览见[插件契约 v2](/plugins/v2)，完整 v2 范例见 Dev 仓库 `plugins/openvideo-plugin-demo`（1.1.0）。
 
 ## 从开发到发布
 
